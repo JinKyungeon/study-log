@@ -1,5 +1,5 @@
 ---
-updated: 2026-09-29
+updated: 2026-09-30
 current_week: 2026-10-week1
 tags: [study-log, progress]
 ---
@@ -35,3 +35,4 @@ tags: [study-log, progress]
 
 ## 📅 세션 기록
 - 2026-09-29: 저장소·git·GitHub 세팅, 코랩 세팅, print 학습 (1주차 1일차)
+- 2026-09-30: 1일차 복습 — git status/diff/log 확인, 문제 의도 정리 ([[python/2026-10-week1/notes|노트]])
