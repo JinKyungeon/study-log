@@ -52,5 +52,4 @@ study-log/
 - [백준](https://www.acmicpc.net/) · [프로그래머스](https://school.programmers.co.kr/)
 - [구글 코랩](https://colab.research.google.com/)
 
-## 번외: 음악 × 파이썬 (나중에)
-- 코드 진행 생성기 같은 작곡 관련 실습 — 리스트·랜덤·함수를 배운 뒤 도전
+
