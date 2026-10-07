@@ -28,3 +28,39 @@ print(chord * 2 + "G")     # CCG  ← * 먼저
 # 보너스: 문제 4 고치기 → BPM 120
 print("BPM", "120")        # 방법 1: 쉼표는 공백 자동 (print("BPM", 120)도 가능)
 print("BPM " +"120")       # 방법 2: + 는 공백 없음 → "BPM " 안에 직접 공백
+
+
+# ===== 2일차 (2026-10-07): 형 변환 str(), int() =====
+
+# 복습 (예측 모두 정답)
+volume = 50
+print(volume + 10)         # 60
+print(volume)              # 50  ← 보여주기만 했으니 그대로
+volume = volume + 10
+print(volume)              # 60
+
+print(type(7))             # <class 'int'>
+print(type("7"))           # <class 'str'>
+print(type("Am"))          # <class 'str'>
+
+# 타이핑
+bpm = 90
+print("BPM " + str(bpm))   # BPM 90
+print(int("7")+int("3"))   # 10  (int 없으면 73)
+
+# 문제 1 (정답)
+x = "5"
+print(x * 3)               # 555  ← 문자열 반복
+print(int(x) * 3)          # 15   ← 숫자 곱셈
+
+# 문제 2 (정답)
+print(type(str(100)))      # <class 'str'>
+print(type(int("100")))    # <class 'int'>
+
+# 문제 3: + 만으로 "총 210초" (정답)
+minutes = 3
+seconds = 30
+print("총 "+str(minutes*60+seconds)+"초")
+
+# 문제 4: 에러 추측 (정답 — 정수 모양이 아니라서)
+# print(int("Am"))         # ValueError: invalid literal for int() with base 10: 'Am'
