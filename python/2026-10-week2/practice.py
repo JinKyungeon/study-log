@@ -24,3 +24,7 @@ print(chord * 2 + "G")     # CCG  ← * 먼저
 
 # 문제 4: 에러 추측 (정답 — 타입이 달라서)
 # print("BPM " + 120)      # TypeError: can only concatenate str (not "int") to str
+
+# 보너스: 문제 4 고치기 → BPM 120
+print("BPM", "120")        # 방법 1: 쉼표는 공백 자동 (print("BPM", 120)도 가능)
+print("BPM " +"120")       # 방법 2: + 는 공백 없음 → "BPM " 안에 직접 공백
