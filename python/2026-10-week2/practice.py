@@ -64,3 +64,47 @@ print("총 "+str(minutes*60+seconds)+"초")
 
 # 문제 4: 에러 추측 (정답 — 정수 모양이 아니라서)
 # print(int("Am"))         # ValueError: invalid literal for int() with base 10: 'Am'
+
+
+# ===== 3일차 (2026-10-07): input =====
+
+# 복습 (모두 정답)
+a = "4"
+b = 4
+print(a * 2)               # 44
+print(b * 2)               # 8
+print(int(a) + b)          # 8
+
+key = "D"
+bpm = 140
+print(key+"키 "+str(bpm)+"BPM")   # D키 140BPM
+
+# print("Track " + 3)      # TypeError
+# print(int("C major"))    # ValueError
+
+# 타이핑
+name = input("이름: ")
+print(name +"님 안녕하세요")
+
+bpm = input("BPM: ")
+print(int(bpm)*2)          # 쓸 때 변환 (받자마자: bpm = int(input("BPM: ")))
+
+# 문제 1: 7 입력 (정답)
+x = input("숫자: ")
+print(x + x)               # 77
+print(int(x) + int(x))     # 14
+
+# 문제 2: 분·초 입력 → 총 몇 초 (정답)
+minutes = input("분: ")
+seconds = input("초: ")
+print("총",str(int(minutes)*60+int(seconds))+"초")   # 총 135초 ← 쉼표(공백) + +(붙이기) 섞기
+
+# 문제 3: 코드 반복 (정답)
+chord = input ("코드: ")
+times = input ("횟수: ")
+print(chord*int(times))    # AmAmAm ← 횟수만 int
+
+# 문제 4: 에러 추측 (정답)
+bpm = input("BPM: ")
+# print(bpm + 10)          # TypeError: can only concatenate str (not "int") to str
+print(int(bpm) + 10)       # 고친 코드
