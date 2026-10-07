@@ -90,9 +90,30 @@ tags: [python, week-note]
   - 에러 메시지 마지막 줄 `Perhaps you forgot a comma?`가 답을 알려 준다
 
 ### 다음에 안 보고 다시 짜기
-- [ ] `minutes`, `seconds` 변수로 4분 15초를 초로 계산해 `총 초= 255` 출력
-- [ ] `bpm = 100` → 20 올리기 → 출력 (`bpm = bpm + 20`)
-- [ ] 출력 예측: `name = "Kyungeon"` 다음 `print("name", name)`
+- [x] `minutes`, `seconds` 변수로 4분 15초를 초로 계산해 `총 초= 255` 출력
+- [x] `bpm = 100` → 20 올리기 → 출력 (`bpm = bpm + 20`)
+- [x] 출력 예측: `name = "Kyungeon"` 다음 `print("name", name)`
+
+### 3일차 (2026-10-07) — [[변수]] 인출 연습 결과
+| 문제 | 내 답 | 결과 |
+|---|---|---|
+| A. 4분 15초 → 초 | `print("총 초", minutes*60 + seconds)` | ⚠️ 계산은 맞음, 출력 `총 초 255`로 `=` 누락 |
+| B. bpm 20 올리기 | `print(bpm+20)` | ⚠️ 화면엔 `120`, 하지만 `bpm`은 여전히 `100` |
+| C. `print("name", name)` 예측 | `name Kyungeon` | ✅ |
+| D. `print("Key,", key, "major")` 예측 | `Key, G major` | ✅ |
+| D. `print(key, "=", 7)` 예측 | `G = 7` | ✅ |
+
+- **쉼표 해결:** 따옴표 안 쉼표(`"Key,"`)는 글자, 밖 쉼표는 공백 → 예측 3개 모두 정답
+- **새로 알게 된 것:** "계산해서 보여주기"와 "변수 값 바꾸기"는 다르다
+  ```python
+  bpm = 100
+  print(bpm+20)    # 120  ← 계산 결과를 보여주기만 함
+  print(bpm)       # 100  ← bpm은 그대로!
+  bpm = bpm + 20   # 이렇게 다시 넣어야 바뀐다
+  print(bpm)       # 120
+  ```
+  - 비유: 트랙 볼륨을 머릿속으로 +20 해 보는 것 vs 실제로 페이더를 올려 저장하는 것
+- 예측 답을 `#` 주석으로 코드 옆에 적는 습관 → 좋은 방법. 실행 후 바로 비교 가능
 
 ## 참고 자료
 - [점프 투 파이썬 02장 — 자료형과 변수](https://wikidocs.net/book/1)

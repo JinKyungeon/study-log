@@ -57,3 +57,26 @@ print(chord, "F", "C")  # Am F C
 bpm = 100
 bpm = bpm + 20     # 오른쪽 먼저: 100 + 20 → bpm에 다시 넣음
 print(bpm)         # 120
+
+
+# ===== 3일차 (2026-10-07): 변수 안 보고 다시 짜기 =====
+
+# A: 4분 15초는 몇 초?
+minutes = 4
+seconds = 15
+print("총 초=", minutes*60 + seconds)   # 처음엔 "총 초"로 써서 = 누락 → 출력 형식 맞춤
+
+# B: bpm 20 올리기
+bpm = 100
+print(bpm+20)      # 120 — 보여주기만 함, bpm은 여전히 100
+bpm = bpm + 20     # 실제로 값을 바꾸는 방법
+print(bpm)         # 120
+
+# C: 출력 예측 (정답)
+name = "Kyungeon"
+print("name", name)        # name Kyungeon
+
+# D: 쉼표 예측 (정답)
+key = "G"
+print("Key,", key, "major")   # Key, G major  ← 안 쉼표는 글자
+print(key, "=", 7)            # G = 7
