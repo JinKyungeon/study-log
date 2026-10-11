@@ -108,3 +108,47 @@ print(symbol*int(times))   # - 와 3 입력 → --- ← 횟수만 int
 quantity = input("수량: ")
 # print(quantity + 10)     # TypeError: can only concatenate str (not "int") to str
 print(int(quantity) + 10)  # 고친 코드
+
+# ===== 4일차 (2026-10-11): 불(bool), 비교 연산자 =====
+
+# 복습 1: 예측 (3 입력)
+order = input("주문 수량: ")
+print(order * 2)           # 33
+print(int(order) * 2)      # 6
+print(type(order))         # <class 'str'>  ← 처음엔 int로 예측(오답). int(order)는 잠깐 쓰기만, order는 그대로
+
+# 복습 2: 단가·수량 입력 → 총액 (힌트 후 정답)
+price = int(input("단가: "))
+quantity = int(input("수량: "))
+# print("총액",price*quantity+"원")   # TypeError — 숫자 + 문자열
+print("총액",str(price*quantity)+"원")  # 총액 6000원 ← 받자마자 int로 바꿨어도 붙일 땐 다시 str
+
+# 타이핑
+temperature = 28
+print(temperature>=30)     # False
+
+user_count = 0
+print(user_count==0)       # True
+
+# 문제 1: 예측
+sales = 120
+target = 100
+print(sales > target)      # True
+print(sales == 120)        # True
+print(sales != target)     # True
+print(type(sales > target))   # <class 'bool'>  ← 처음엔 str로 예측(오답). True엔 따옴표 없음
+
+# 문제 2: 예측
+print(10 == 10)            # True
+print("10" == 10)          # False  ← 처음엔 "오류"로 예측(오답). ==는 묻기만 → 종류 달라도 에러 없이 False
+print(int("10") == 10)     # True
+
+# 문제 3: 60점 이상이면 합격 (힌트 후 정답)
+score = int(input("점수: "))
+# print("합격여부:", score >=75)       # 띄어쓰기 누락 + 예시 입력 75를 기준으로 씀
+print("합격 여부:", score >= 60)       # 합격 여부: True
+
+# 문제 4: 에러 추측 (정답)
+stock = 5
+# print(stock = 0)         # TypeError: print() got an unexpected keyword argument 'stock'
+print(stock == 0)          # False ← 비교는 ==
