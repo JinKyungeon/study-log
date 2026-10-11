@@ -152,3 +152,23 @@ print("합격 여부:", score >= 60)       # 합격 여부: True
 stock = 5
 # print(stock = 0)         # TypeError: print() got an unexpected keyword argument 'stock'
 print(stock == 0)          # False ← 비교는 ==
+
+# ===== 5일차 (2026-10-11): 2주차 마무리 복습 =====
+print(5 > 3)               # True
+print(type(5 > 3))         # <class 'bool'>
+print("7" == 7)            # False
+print(int("7") == 7)       # True
+
+visitors = "50"
+print(int(visitors) + 10)  # 60
+print(type(visitors))      # <class 'str'>
+
+# 가격·할인 → 최종 가격 7000원 (str()은 스스로, ":"만 힌트 후 삭제)
+price = int(input("가격: "))
+sale = int(input("할인: "))   # 실무 변수명은 보통 discount
+# print("최종 가격: "+str(price-sale)+"원")   # 최종 가격: 7000원 ← 예시에 없는 ":"
+print("최종 가격 "+str(price-sale)+"원")      # 최종 가격 7000원
+
+# 미세먼지 80 초과 → 나쁨 여부
+dust = int(input("미세먼지: "))
+print("나쁨 여부:",str(dust > 80))   # 나쁨 여부: True ← 쉼표면 str() 없어도 됨
