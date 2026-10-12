@@ -1,6 +1,7 @@
 ---
 date: 2026-10-07
 week: 2026-10-week2
+status: 🟢 이해함
 tags: [python, 개념, 입력]
 ---
 

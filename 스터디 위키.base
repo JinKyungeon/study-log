@@ -1,0 +1,39 @@
+properties:
+  note.status:
+    displayName: 상태
+  note.week:
+    displayName: 주차
+  note.date:
+    displayName: 처음 배운 날
+  file.name:
+    displayName: 이름
+views:
+  - type: table
+    name: 개념 사전
+    filters:
+      and:
+        - file.hasTag("개념")
+        - '!file.inFolder("templates")'
+    order:
+      - file.name
+      - status
+      - week
+      - date
+      - tags
+    sort:
+      - property: date
+        direction: ASC
+  - type: table
+    name: 주차 노트
+    filters:
+      and:
+        - file.hasTag("week-note")
+        - '!file.inFolder("templates")'
+    order:
+      - file.name
+      - file.folder
+      - week
+      - topics
+    sort:
+      - property: week
+        direction: ASC

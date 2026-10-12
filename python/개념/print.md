@@ -1,6 +1,7 @@
 ---
 date: 2026-09-29
 week: 2026-10-week1
+status: 🟢 이해함
 tags: [python, 개념, 출력]
 ---
 
