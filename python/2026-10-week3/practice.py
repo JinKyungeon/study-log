@@ -77,3 +77,63 @@ elif score >= 70:
 else:
     grade = "F"
 print("학점:", grade)
+
+# ===== 4일차 (2026-10-20) =====
+
+# 복습 1: 예측 — else가 없으면 다 False일 때 아무것도 안 함
+stock = 0
+if stock >= 10:
+    print("재고 넉넉")
+elif stock >= 1:
+    print("재고 부족")
+print("확인 완료")                        # 확인 완료 (확인완료 → 공백 힌트 후 정답)
+
+# 복습 2: 구매 금액 할인 (구조 한 번에 정답, 안내문 공백 힌트 후 수정)
+purchase_amount = int(input("구매 금액: "))
+
+if purchase_amount >= 100000:
+    discount = 10000
+elif purchase_amount >= 50000:
+    discount = 3000
+else:
+    discount = 0
+
+payment_amount = purchase_amount - discount
+print("결제 금액",str(payment_amount)+"원")
+
+# for 타이핑: 들여 쓴 줄만 반복
+for i in range(1, 4):
+    print(i, "번째 반복")                 # 3번
+print("반복 끝")                          # 1번
+
+# 문제 1: 예측 — 줄 0 / 줄 1 / 줄 2 / 끝 (처음엔 0줄로 순서 오답)
+for i in range(3):
+    print("줄", i)
+print("끝")
+
+# 문제 2: 예측 (정답) — 20 / 30 / 40
+for i in range(2, 5):
+    print(i * 10)
+
+# 문제 3: 구구단 (X → x, str() 빼기 힌트 후 정답)
+number = int(input("단: "))
+
+for i in range(1,10):
+    print(number,"x",i,"=" ,number*i)
+
+# 문제 4: 학생 3명 등급 + 총점 (총점 score(i) → 누적 패턴 힌트 후 정답)
+total_score = 0
+
+for i in range(1,4):
+    score = int(input(str(i)+"번 학생 점수: "))
+    
+    if score >= 90:
+        grade = "A"
+    elif score >= 80:
+        grade = "B"
+    else:
+        grade = "C"
+    
+    print(str(i)+"번 학생",grade)
+    total_score = total_score + score
+print("총점",total_score)
