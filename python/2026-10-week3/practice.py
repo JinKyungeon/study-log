@@ -137,3 +137,44 @@ for i in range(1,4):
     print(str(i)+"번 학생",grade)
     total_score = total_score + score
 print("총점",total_score)
+
+
+# ===== 5일차 (2026-10-26) — 복습 + while =====
+
+# 복습 1: 예측 (정답) — 2 / 4 / 6 / 8 / 끝
+for i in range(1, 5):
+    print(i * 2)
+print("끝")
+
+# 복습 2: 3일 매출 누적 (daily_salse / daily_sales 오타로 3원 → 스스로 발견)
+total_salse = 0
+
+for i in range(1,4):
+    daily_salse = int(input("하루 매출: "))
+    
+    total_salse = total_salse + daily_salse
+
+print("총 매출",str(total_salse)+"원")
+
+# 타이핑: while (출력 횟수 4번 → 힌트 후 5번)
+water = 0
+while water < 5:
+    print("물 한 컵 마심")
+    water = water + 1
+print("오늘 물", water, "컵 완료")
+
+# 문제 1: 예측 (정답) — 7000 / 4000 / 1000 / 돈 부족
+money = 10000
+while money >= 3000:
+    money = money - 3000
+    print("커피 구매, 남은 돈", money)
+print("돈 부족")
+
+# 문제 2: 비밀번호 (!= → = 힌트 후 해결, 다듬기 + 보너스 B)
+correct_password = "1234"
+
+password = input("비밀번호: ")
+while password != correct_password:
+    print("틀렸습니다")
+    password = input("비밀번호: ")
+print("로그인 성공")
