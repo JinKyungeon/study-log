@@ -178,3 +178,14 @@ while password != correct_password:
     print("틀렸습니다")
     password = input("비밀번호: ")
 print("로그인 성공")
+
+# 문제 3: 목표 금액까지 저금 (== → <= → < 스스로, 횟수 늘리기는 알려 줌)
+saved_total = 0
+deposit_count = 0
+goal_amount = 10000
+while saved_total < goal_amount:
+    deposit = int(input("저금할 금액: "))
+    saved_total = saved_total + deposit
+    deposit_count = deposit_count + 1
+print("목표 달성! 총",str(saved_total)+ "원")
+print(str(deposit_count)+ "번" , "저금했습니다")
