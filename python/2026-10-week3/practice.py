@@ -209,3 +209,47 @@ while water_amount < max_amount:
     print("현재 물:",str(water_amount)+"ml")
 
 print("다 찼습니다")
+
+# 7일차 (2026-10-27) 3주차 마무리 복습
+# 1: 출력 먼저 → 누적 (예측: 표로 한 칸씩 → 지금 0 / 지금 1 / 지금 3 / 끝 6)
+total = 0
+for number in range(1, 4):
+    print("지금", total)
+    total = total + number
+print("끝", total)
+
+# 2: 계산 먼저 → 출력, 안에 if/else (예측 한 번에: 충전 중 70 / 충전 완료 90)
+battery = 50
+while battery < 80:
+    battery = battery + 20
+    if battery >= 80:
+        print("충전 완료", battery)
+    else:
+        print("충전 중", battery)
+
+# 3: 3일 걸음 수 (구조 한 번에, 안내문 끝 공백만 질문 후 수정)
+total_steps = 0
+
+for day in range (1,4):
+
+    steps = int(input(str(day)+"일차 걸음 수: "))
+
+    if steps >= 10000:
+        print("목표 달성")
+    elif steps >= 5000:
+        print("보통")
+    else:
+        print("부족")
+    total_steps = total_steps + steps
+print("총 걸음 수", total_steps)
+
+# 4: 지갑 3000원씩 (한 번에 정답)
+balance = 10000
+daily_spend = 3000
+daily_count = 0
+
+while balance >= 3000:
+    balance = balance - daily_spend
+    daily_count = daily_count + 1
+    print(str(daily_count)+"일차 남은 돈",balance)
+print("더 쓸 수 없음",balance)
