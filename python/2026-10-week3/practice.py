@@ -189,3 +189,23 @@ while saved_total < goal_amount:
     deposit_count = deposit_count + 1
 print("목표 달성! 총",str(saved_total)+ "원")
 print(str(deposit_count)+ "번" , "저금했습니다")
+
+# 6일차 (2026-10-27) 복습 2: 숫자 맞히기 (한 번에 정답)
+answer = 7
+
+guess = int(input("숫자: "))
+while guess != answer:
+    print("틀렸습니다")
+    guess = int(input("숫자: "))
+
+print("정답입니다!")
+
+# 6일차 복습 3: 물병 1000ml (조건 한 번에, + 200 저장 누락 → 스스로 수정)
+water_amount = 0
+max_amount = 1000
+
+while water_amount < max_amount:
+    water_amount = water_amount + 200
+    print("현재 물:",str(water_amount)+"ml")
+
+print("다 찼습니다")
