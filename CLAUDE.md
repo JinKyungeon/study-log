@@ -21,3 +21,5 @@
 ## 환경
 - 원래 작업은 맥북 로컬(메인)에서 하고 GitHub에 푸시한다. 현재는 군 복무 중이라 웹으로 진행한다
 - 웹 작업은 브랜치에 쌓고 PR로 `main`에 머지한 뒤, 나중에 맥북에서 `git pull` 한다
+- 맥북에서는 **Antigravity IDE** + Claude Code 확장으로 진행한다 (2026-11-06~). 코드는 `practice.py`에 직접 짜고, 문제마다 `# %%` 칸으로 나눠 Run Cell(Jupyter, `.venv`)로 실행한다
+  - `.venv`는 git에 올리지 않는다. 12월 판다스 등 패키지는 `.venv/bin/pip install`로 설치

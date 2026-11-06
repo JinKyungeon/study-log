@@ -16,3 +16,6 @@ __pycache__/
 out/
 build/
 .idea/
+
+# 파이썬 가상환경 (맥북 로컬 전용)
+.venv/
