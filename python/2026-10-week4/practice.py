@@ -58,3 +58,42 @@ print("무료 배송:", is_free_shipping)
 print("결제 금액", str(payment_amount)+"원")
 # 8000, 3 → 총액 24000원 / 무료 배송: False / 결제 금액 27000원
 # 12000, 3 → 총액 36000원 / 무료 배송: True / 결제 금액 36000원
+
+# ===== 4일차 (2026-11-09) =====
+
+# %% 4일차 문제 1: 도서 주문 결제 — 3일차 주문 결제 안 보고 다시 짜기 (한 번에 정답, 질문 없음)
+book_price = int(input("권당 가격: "))
+book_count = int(input("권수: "))
+total_amount = book_price * book_count
+is_free_shipping = total_amount >= 40000   # 비교 결과(True/False)를 담기 → 이번엔 처음부터
+shipping_fee = 2500
+
+if is_free_shipping:                       # 블록 안에서는 값만
+    payment_amount = total_amount
+else:
+    payment_amount = total_amount + shipping_fee
+
+print("총액", str(total_amount)+"원")
+print("무료 배송:", is_free_shipping)
+print("결제 금액", str(payment_amount)+"원")
+# 15000, 2 → 총액 30000원 / 무료 배송: False / 결제 금액 32500원
+# 20000, 2 → 총액 40000원 / 무료 배송: True / 결제 금액 40000원  ← 경계값 40000은 >= 라서 True
+
+# %% 4일차 문제 2: 접속자 예측 — for 다음 while (표 두 개, 한 번에 정답)
+user_count = 0
+for i in range(1, 4):
+    user_count = user_count + i * 10
+    print(i, "시간 접속자", user_count)
+while user_count > 30:                     # for가 남긴 60에서 이어서 시작
+    user_count = user_count - 15
+    print("감소", user_count)
+print("최종", user_count)
+# 예측 표 — for 부분 (바퀴 / i / user_count / 출력)
+# 1 / 1 / 10 / 1 시간 접속자 10
+# 2 / 2 / 30 / 2 시간 접속자 30
+# 3 / 3 / 60 / 3 시간 접속자 60
+# 예측 표 — while 부분 (바퀴 / 검사 / user_count / 출력)
+# 1 / 60 > 30 True  / 45 / 감소 45
+# 2 / 45 > 30 True  / 30 / 감소 30
+# 마지막 검사 / 30 > 30 False → 밖으로   ← 경계값
+# 반복 뒤: 최종 30
