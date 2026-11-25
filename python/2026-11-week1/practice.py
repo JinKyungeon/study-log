@@ -66,3 +66,62 @@ for score in scores:
         max_score = score    # 기억해 둔 값을 바꾼다
 print("최고 점수:", max_score)
 # [72, 88, 95, 64, 90] → 95 / [50, 40, 99, 10] → 99 / [-5, -3, -9] → -3
+
+
+
+# ===== 2일차 (2026-11-25) — 2주 만에 =====
+
+# %% 2일차 복습: 기온 분석 — 최솟값 + 영하 세기 + 평균을 반복 하나에서 (실수 3개 고친 뒤 정답)
+temperatures = [3, -2, 5, -6, 1, 0, 4]
+
+below_zero_count = 0
+total_temperature = 0
+min_temperature = temperatures[0]                # 리스트 "안의" 값으로 시작
+for temperature in temperatures:
+    total_temperature = total_temperature + temperature
+    # if min_temperature < temperature:          ← 방향 반대 = 최댓값 코드. "지금 값이 더 작으면"으로
+    if temperature < min_temperature:
+        # min_temperature = temperatures         ← s 하나 차이로 리스트 전체를 넣음 → TypeError: '<' ... 'list' and 'int'
+        min_temperature = temperature
+    if temperature < 0:                          # if 여러 개 = 각각 따로 검사 (elif는 하나만)
+        below_zero_count = below_zero_count + 1
+# (처음엔 아래 두 줄이 반복 안 → 7번 계산, 마지막 바퀴가 덮어써서 우연히 맞음)
+day_count = len(temperatures)
+average_temperature = total_temperature / day_count   # 다 모은 뒤 1번
+
+print("최저 기온:", min_temperature)
+print("영하인 날:", below_zero_count)
+print("평균 기온:", average_temperature)
+# 최저 기온: -6 / 영하인 날: 2 / 평균 기온: 0.7142857142857143
+
+# %% 2일차 타이핑: append — 빈 리스트에 하나씩 추가 (for + input 버전으로 도전)
+daily_sales = []                                 # 빈 리스트로 시작
+for i in range(1, 4):
+    # daily_sale = int(input("오늘 매출: ", str(i)))   ← TypeError: input expected at most 1 argument, got 2 (input은 하나만)
+    # daily_sale = int(input("오늘 매출: " + str(i)))  ← 동작하지만 화면에 "오늘 매출: 112000"처럼 보임
+    daily_sale = int(input(str(i) + "일차 매출: "))
+    daily_sales.append(daily_sale)               # 리스트 맨 뒤에 추가
+print(daily_sales)
+print(len(daily_sales))
+# 12000, 8500, 15000 → [12000, 8500, 15000] / 3
+
+# %% 2일차 문제 1: 매출 입력받아 분석 — 모으기(반복 ①) → 분석(반복 ②)  (마지막 구조는 정답 보고 정리)
+# 처음 코드: 반복 하나에서 입력하면서 바로 분석, append 빠짐 → 매출 목록 [], 기준 100000 / >
+# 고친 뒤:   append·>= 10000은 스스로 수정, 반복 나누기·시작값은 정답 보고
+daily_sales = []
+for i in range(1, 6):                            # ① 입력받아 모으기만
+    daily_sale = int(input(str(i) + "일차 매출: "))
+    daily_sales.append(daily_sale)
+
+max_sales = daily_sales[0]                       # 리스트가 다 찬 뒤라 [0] 사용 가능 (0으로 시작하지 않기)
+high_sales_day_count = 0
+for daily_sale in daily_sales:                   # ② 리스트를 돌며 분석
+    if daily_sale > max_sales:
+        max_sales = daily_sale
+    if daily_sale >= 10000:                      # 1만 원 "이상" → >=, 0은 4개
+        high_sales_day_count = high_sales_day_count + 1
+
+print("매출 목록:", daily_sales)
+print("최고 매출:", max_sales)
+print("1만 원 이상인 날:", high_sales_day_count)
+# 12000, 8500, 15000, 7000, 11000 → [12000, 8500, 15000, 7000, 11000] / 15000 / 3
