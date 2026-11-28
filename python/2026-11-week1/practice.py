@@ -125,3 +125,78 @@ print("매출 목록:", daily_sales)
 print("최고 매출:", max_sales)
 print("1만 원 이상인 날:", high_sales_day_count)
 # 12000, 8500, 15000, 7000, 11000 → [12000, 8500, 15000, 7000, 11000] / 15000 / 3
+
+# ===== 3일차 (2026-11-27~28) — 1주차 마무리 =====
+
+# %% 3일차 복습: 접속자 분석 — 2일차 매출 분석 안 보고 다시 짜기 (구조 한 번에, 출력 첫 줄만 수정)
+daily_user_counts = []
+for i in range(1, 6):                              # ① 모으기
+    user_count = int(input(str(i) + "일차 접속자 수: "))
+    daily_user_counts.append(user_count)
+
+max_user_count = daily_user_counts[0]              # 다 모은 뒤 리스트 안의 값으로 시작
+busy_day_count = 0
+for user_count in daily_user_counts:               # ② 분석
+    if user_count > max_user_count:
+        max_user_count = user_count
+    if user_count >= 100:                          # 100명 "이상" → >=
+        busy_day_count = busy_day_count + 1
+
+# print("최고 접속자 수:", daily_user_counts)     ← 아래 줄을 복사해서 이름표가 틀림
+print("접속자 목록:", daily_user_counts)
+print("최고 접속자 수:", max_user_count)
+print("100명 이상인 날:", busy_day_count)
+# 120, 85, 150, 100, 60 → [120, 85, 150, 100, 60] / 150 / 3
+
+# %% 3일차 문제 1: 재고 예측 — 필터링 + 마지막 값 (표·앞 두 줄 정답, 마지막 줄 질문 후)
+stock_list = [5, 0, 12, 3]
+reorder_items = []
+
+for stock in stock_list:
+    if stock < 4:
+        reorder_items.append(stock)     # if 안의 append = 조건에 맞는 것만 골라 담기 (필터링)
+
+print(reorder_items)                    # [0, 3]
+print(len(reorder_items))               # 2
+print(stock_list[len(stock_list) - 1])  # 3 ← 처음 0으로 예측 (reorder_items나 [0]과 헷갈림). 괄호 안 리스트 이름부터 확인
+# 리스트[len(리스트) - 1] = 항상 마지막 값 (길이가 바뀌어도)
+# 표 (바퀴 / stock / stock < 4 / reorder_items): 시작 [] → 1: 5 F [] → 2: 0 T [0] → 3: 12 F [0] → 4: 3 T [0, 3]
+
+# %% 3일차 문제 2: 성적 나누기 — if/else로 두 리스트에 (한 번에 정답)
+scores = [78, 45, 92, 58, 66, 100, 39]
+passed_scores = []
+retest_scores = []
+total_passed_score = 0
+for score in scores:
+    if score >= 60:                     # "60 미만이면 재시험"을 뒤집어 씀 — 같은 뜻
+        passed_scores.append(score)
+        total_passed_score = total_passed_score + score   # 담으면서 바로 합계 (0 시작이라 반복을 나눌 필요 없음)
+    else:                               # True/False 둘 중 하나 → if/else (동시에 둘 다 될 수 없음)
+        retest_scores.append(score)
+
+print("재시험 대상:", retest_scores)
+print("재시험 인원:", len(retest_scores))
+print("합격자 점수:", passed_scores)
+print("합격자 평균:", total_passed_score / len(passed_scores))
+# [45, 58, 39] / 3 / [78, 92, 66, 100] / 84.0
+
+# %% 3일차 문제 3: 주문 분석 — 1주차 총정리 (한 번에 정답)
+order_amounts = []
+for i in range(1, 5):                              # ① 모으기
+    order_amount = int(input(str(i) + "번 주문 금액: "))
+    order_amounts.append(order_amount)
+
+max_order_amount = order_amounts[0]
+large_orders = []
+for order_amount in order_amounts:                 # ② 분석 — 서로 상관없는 질문 둘 → if 여러 개
+    if max_order_amount < order_amount:            # order_amount > max_order_amount 와 같은 뜻
+        max_order_amount = order_amount
+    if order_amount >= 30000:                      # 필터링
+        large_orders.append(order_amount)
+
+print("주문 목록:", order_amounts)
+print("큰 주문:", large_orders)
+print("큰 주문 수:", len(large_orders))
+print("최대 주문:", max_order_amount)
+print("마지막 주문:", order_amounts[len(order_amounts) - 1])
+# 25000, 48000, 12000, 31000 → [25000, 48000, 12000, 31000] / [48000, 31000] / 2 / 48000 / 31000
